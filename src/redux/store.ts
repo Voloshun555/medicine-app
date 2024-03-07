@@ -12,18 +12,19 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { medicineReducer } from "./medicine/medecineSlice";
+import { filterReducer } from "./filter/filterSlice";
+import { shopReducer } from "./shop/shopSlice";
 
 const persistConfig = {
     key: "root",
     storage,
-    // whitelist: [""],
+    whitelist: ["shop"],
 };
 
 const rootReducer = combineReducers({
-    medicine: medicineReducer
-    // cars: carsReducer,
-    // favorite: favoriteSlice,
-    // filter: filterSlice.reducer,
+    medicine: medicineReducer,
+    filter: filterReducer,
+    shop: shopReducer
 });
 
 const persistUsersReducer = persistReducer(persistConfig, rootReducer);

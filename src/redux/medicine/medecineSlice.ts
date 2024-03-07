@@ -1,50 +1,53 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { getAllMedicines } from "./medecineOperation";
 
-export interface IData {
-    pharmacy: string;
-    id: string
-    name: string
-    image:string
+export interface IInitialState {
+    items: [{
+        pharmacy: string
+        medications: [{
+            id: string;
+            price: number;
+            image: string;
+            name: string;
+        }]
+
+    }]
+    isLoading: boolean
+    error: null
 }
-interface MedicineState {
-    items: IData[];
-    isLoading: boolean;
-    error: string | null;
-}
 
-
-
-const medicine: MedicineState = {
-    items: [],
+const initialState: IInitialState = {
+    items: [{
+        pharmacy: '',
+        medications: [{
+            id: '',
+            price: NaN,
+            image: '',
+            name: ''
+        }]
+    }],
     isLoading: false,
     error: null,
 };
-
-const handlePending = (state: MedicineState) => {
+const handlePending = (state: IInitialState) => {
     state.isLoading = true;
 };
 
-const handleFulfilled = (state: MedicineState, action: PayloadAction<any[]>) => {
+const handleFulfilled = (state: { isLoading: boolean; error: null; items: any; }, action: { payload: any; }) => {
     state.isLoading = false;
     state.error = null;
     state.items = action.payload;
 };
 
-const handleRejected = (state: MedicineState, action: PayloadAction<any>) => {
-    state.isLoading = false;
-    state.error = action.payload;
-};
-
 const medicineSlice = createSlice({
     name: "medicine",
-    initialState: medicine,
+    initialState: initialState,
     reducers: {},
     extraReducers: (builder) => {
         builder
             .addCase(getAllMedicines.pending, handlePending)
             .addCase(getAllMedicines.fulfilled, handleFulfilled)
-            .addCase(getAllMedicines.rejected, handleRejected)
+
     },
 });
 

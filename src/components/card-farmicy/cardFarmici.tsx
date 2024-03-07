@@ -2,15 +2,23 @@
 import s from "./cardFarmicy.module.scss";
 
 interface IStep {
-  step?: boolean
-  name?: string
-  image?: string
-  price?: number
-  
+  step?: boolean;
+  name?: string;
+  image?: string;
+  price?: number;
+  buttonText?: string;
+  onClick?: () => void;
 }
 
 
-export const CardFarmicy = ({ step, name, image, price }: IStep) => {
+export const CardFarmicy = ({
+  step,
+  name,
+  image,
+  price,
+  onClick,
+  buttonText,
+}: IStep) => {
   return (
     <li className={s.cardList}>
       <img className={s.image} src={image} alt={name} />
@@ -23,7 +31,7 @@ export const CardFarmicy = ({ step, name, image, price }: IStep) => {
         {step && <input type="number" min={1} step={1} value={1} />}
       </div>
 
-      <button>add Card</button>
+      <button onClick={onClick}>{buttonText}</button>
     </li>
   );
 };
