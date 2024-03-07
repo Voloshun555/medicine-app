@@ -1,4 +1,4 @@
-import tablket from "../../image/2080020.jpg";
+// import tablket from "../../image/2080020.jpg";
 import s from "./cardFarmicy.module.scss";
 
 interface IStep {
