@@ -1,7 +1,7 @@
 
 import { Suspense } from "react";
 import { Heder } from "../heder/heder"
-import s from "./layout.module.scss"
+// import s from "./layout.module.scss"
 import { Outlet } from "react-router-dom";
 
 
