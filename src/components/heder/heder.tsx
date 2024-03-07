@@ -11,7 +11,7 @@ export const Heder = () => {
       </Link>
       <div>
         <CustomLink to="/">Pharmacies</CustomLink>
-        <CustomLink to="/456">Sopping cart</CustomLink>
+        <CustomLink to="/shoping">Sopping cart</CustomLink>
       </div>
     </header>
   );
