@@ -15,11 +15,10 @@
     height: 372px;
 
     label {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      align-items: start;
-
+       display: flex;
+       flex-direction: column;
+      gap: 8px; 
+    }
       input {
         width: 270px;
         height: 40px;
@@ -31,6 +30,5 @@
         font-size: 10px;
         line-height: 1;
       }
-    }
   }
 }

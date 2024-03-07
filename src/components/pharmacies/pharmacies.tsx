@@ -10,7 +10,7 @@ export const Pharmacies = () => {
         <ul className={s.grupButton}>
           {medicine.map((data) => (
             <li className={s.listButton}>
-              <button>{data.pharmacy}</button>
+              <button type="button">{data.pharmacy}</button>
             </li>
           ))}
         </ul>
