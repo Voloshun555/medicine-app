@@ -1,44 +1,48 @@
 import React from "react";
-import { useAppDispatch, useAppSelector } from "../../redux/store";
+import { useAppDispatch } from "../../redux/store";
 import { CardFarmicy } from "../card-farmicy/cardFarmici";
 import s from "./listPharmacies.module.scss";
 import { addShopItem, removeShopItem } from "../../redux/shop/shopSlice";
 
-interface IStep {
+interface ListPharmaciesProps {
+  medicines: any[];
+  shopList: any[];
   step?: boolean;
 }
 
-export const ListPharmacies = ({ step }: IStep) => {
-  const filter = useAppSelector((state) => state.filter.items);
-  const medicine = filter[0]?.medications;
-
-  const shop = useAppSelector(state => state.shop.shopList)
-  console.log(medicine)
-
+const ListPharmacies: React.FC<ListPharmaciesProps> = ({
+  medicines,
+  shopList,
+  step,
+}) => {
   const dispatch = useAppDispatch();
 
- const handleShopAction = (item: any) => {
-   const isItemInShop = shop.includes(item.id);
-   if (isItemInShop) {
-     dispatch(removeShopItem({ id: item.id }));
-   } else {
-     dispatch(addShopItem({ item }));
-   }
- };
+  const handleShopAction = (item: any) => {
+    const isItemInShop = shopList.some((shopItem) => shopItem.id === item.id);
+    if (isItemInShop) {
+      dispatch(removeShopItem({ id: item.id }));
+    } else {
+      dispatch(addShopItem({ item: item }));
+    }
+  };
 
   return (
     <div className={s.container}>
-      {medicine && medicine.length > 0 ? (
+      {medicines && medicines.length > 0 ? (
         <ul className={s.containerCard}>
-          {medicine.map((item) => (
+          {medicines.map((item) => (
             <CardFarmicy
               key={item.id}
-              step={false}
+              step={step}
               name={item.name}
               image={item.image}
               price={item.price}
               onClick={() => handleShopAction(item)}
-              buttonText={shop.includes(item.id) ? "Remove" : "Add card"}
+              buttonText={
+                shopList.some((shopItem) => shopItem.id === item.id)
+                  ? "Remove"
+                  : "Add card"
+              }
             />
           ))}
         </ul>
@@ -48,3 +52,5 @@ export const ListPharmacies = ({ step }: IStep) => {
     </div>
   );
 };
+
+export default ListPharmacies;
