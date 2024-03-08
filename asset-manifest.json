@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/medicine-app/static/css/main.2ee9fd4c.css",
-    "main.js": "/medicine-app/static/js/main.d3f47da5.js",
+    "main.js": "/medicine-app/static/js/main.4c848612.js",
     "static/css/913.925acbcd.chunk.css": "/medicine-app/static/css/913.925acbcd.chunk.css",
-    "static/js/913.d98072af.chunk.js": "/medicine-app/static/js/913.d98072af.chunk.js",
+    "static/js/913.9f03ba3e.chunk.js": "/medicine-app/static/js/913.9f03ba3e.chunk.js",
     "static/js/453.eaa559ec.chunk.js": "/medicine-app/static/js/453.eaa559ec.chunk.js",
     "static/media/medicine-loga.svg": "/medicine-app/static/media/medicine-loga.96ea012a1cd55532dd633bc93e9cdfb4.svg",
     "index.html": "/medicine-app/index.html",
     "main.2ee9fd4c.css.map": "/medicine-app/static/css/main.2ee9fd4c.css.map",
-    "main.d3f47da5.js.map": "/medicine-app/static/js/main.d3f47da5.js.map",
+    "main.4c848612.js.map": "/medicine-app/static/js/main.4c848612.js.map",
     "913.925acbcd.chunk.css.map": "/medicine-app/static/css/913.925acbcd.chunk.css.map",
-    "913.d98072af.chunk.js.map": "/medicine-app/static/js/913.d98072af.chunk.js.map",
+    "913.9f03ba3e.chunk.js.map": "/medicine-app/static/js/913.9f03ba3e.chunk.js.map",
     "453.eaa559ec.chunk.js.map": "/medicine-app/static/js/453.eaa559ec.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2ee9fd4c.css",
-    "static/js/main.d3f47da5.js"
+    "static/js/main.4c848612.js"
   ]
 }
